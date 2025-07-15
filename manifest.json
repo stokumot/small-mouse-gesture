@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Small Mouse Gesture",
+  "version": "1.0",
+  "description": "タブを閉じたり画像を保存したりする、シンプルなマウスジェスチャーを提供します。",
+  "permissions": [
+    "tabs",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/trail.js",
+        "src/content.js"
+      ]
+    }
+  ]
+}
