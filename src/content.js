@@ -84,7 +84,8 @@ document.addEventListener('mouseup', (event) => {
       chrome.runtime.sendMessage({ 
         action: 'performGesture', 
         gesture: gesture,
-        targetUrl: targetImageUrl 
+        targetUrl: targetImageUrl,
+        pageUrl: window.location.href // 現在のページのURLを追加
       });
     }
     
