@@ -68,8 +68,9 @@ chrome.downloads.onDeterminingFilename.addListener((downloadItem, suggest) => {
     });
     // 使用済みのマッピングを削除
     delete downloadIdToFilenameMap[downloadItem.id];
+    // suggest()を非同期的に呼び出すことを示すためにtrueを返す
+    return true;
   }
-  // このリスナーで非同期処理を行う場合は true ���返す必要がある
-  // 今回は同期的だが、将来的な拡張のために含めておく
-  return true;
+  // desiredFilenameがない場合（elseルート）、デフォルトのファイル名決定プロセスをブロックしないよう、
+  // 何も返さずに（undefinedを返して）リスナーを同期的に完了させます。
 });
